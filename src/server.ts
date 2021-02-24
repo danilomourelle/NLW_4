@@ -1,12 +1,13 @@
-import express from 'express';
+import "reflect-metadata";
+import express from "express";
+import "./database";
+import router from "./router";
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.json({ message: "Pura enrolação" })
-})
+app.use(express.json());
+app.use(router);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
-})
-
+});
